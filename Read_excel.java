@@ -1,5 +1,4 @@
-package keyword;
-
+package keyword_sample;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,7 +7,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class Read_excel {
+public class ReadExcel {
 
 	Workbook wbWorkbook;
 	Sheet shSheet;

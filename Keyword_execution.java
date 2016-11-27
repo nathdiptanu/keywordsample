@@ -1,12 +1,11 @@
-package keyword;
-
+package keyword_sample;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Keyword_execution {
+public class KeyWordExecution {
 
 	public void runReflectionMethod(String strClassName, String strMethodName,
 			Object... inputArgs) {
@@ -24,7 +23,6 @@ public class Keyword_execution {
 			Method myMethod = cls.getDeclaredMethod(strMethodName, params);
 			myMethod.invoke(_instance, inputArgs);
 
-			
 		} catch (ClassNotFoundException e) {
 			System.err.format(strClassName + ":- Class not found%n");
 		} catch (IllegalArgumentException e) {
@@ -46,8 +44,8 @@ public class Keyword_execution {
 	}
 
 	public static void main(String[] args) {
-		Keyword_execution exeKey = new Keyword_execution();
-		Read_excel excelSheet = new Read_excel();
+		KeyWordExecution exeKey = new KeyWordExecution();
+		ReadExcel excelSheet = new ReadExcel();
 		excelSheet.openSheet("D:/testCaseSheet.xls");
 		for (int row = 1; row < excelSheet.getRowCount(); row++) {
 			List<Object> myParamList = new ArrayList<Object>();
@@ -62,7 +60,7 @@ public class Keyword_execution {
 			Object[] paramListObject = new String[myParamList.size()];
 			paramListObject = myParamList.toArray(paramListObject);
 
-			exeKey.runReflectionMethod("keyword.Keyword_example",
+			exeKey.runReflectionMethod("com.keyword.sample.KeyWordExample",
 					methodName, paramListObject);
 		}
 	}
